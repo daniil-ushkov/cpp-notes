@@ -25,7 +25,7 @@ bool do_something() {
 ```c++
 void f() {
 	if (...)
-		throw runtime_error const& e("...");
+		throw runtime_error("...");
 }
 ```
 
@@ -57,12 +57,14 @@ struct base {
 	virtual std::string msg() const {
 		return "base";
 	}
-}
+};
+
 struct derived : base {
 	std::string msg() const {
 		return "derived";
 	}
-}
+};
+
 int main() {
 	try {
 		throw derived(); // без const& в catch выведет base
